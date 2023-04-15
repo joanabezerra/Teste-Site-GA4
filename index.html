@@ -12,18 +12,27 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LVDEH6HKX"></script>
-    <script>
+    <script type="text/javascript">
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-2LVDEH6HKX');
+        window.dataLayer.push({
+            event: '{{ strtolower($event) }}',
+            transactionId: '{{ $transaction->codigo }}',
+            transactionTotal: '{{ $transaction->conversion_valeu }}',
+            transactionCurrency: '{{ $transaction->beneficiary_currency }}',
+            transactionMethod: '{{ $transaction->payment_method }}'
+        });
     </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog GA4</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/estilo.css">
+    
+    <!-- Javascript -->
+    <script src="./js/metodos-de-ativacao.js"></script>
 </head>
 
 <body>
@@ -90,6 +99,12 @@
     </div>
 
     <footer style="clear: both; text-align: center;">Todos os direito reservado - criado por Joana Moraes (@joanammarquesb) </footer>
+    
+    <div id="aceite-dados">
+        <h3>Aceito compartilhar os dados com esse site.</h3>
+        <button calss="botao-aceito" onclick="aceito()" data-gtm-element="botao" data-gtm-category="index" data-gtm-action="click" data-gtm-label="botao:aceito">Aceito</button>
+        <button calss="botao-nao-aceito" onclick="naoaceito()" data-gtm-element="botao" data-gtm-category="index" data-gtm-action="click" data-gtm-label="botao:nao-obrigado">Não obrigadx</button>
+    </div>
 
 </body>
 
