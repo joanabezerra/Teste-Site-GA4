@@ -1,44 +1,85 @@
 console.log('Oi');
 
-function aceito() {
+function pegarValorDoElement(elemento) {
 
-    alert('clicou aceito!');
+    const atributoElement = elemento.getAttribute('data-gtm-element');    
+    return atributoElement;
+
+}
+
+function pegarValorDoCategory(elemento) {
+
+    const atributoCategory = elemento.getAttribute('data-gtm-category');
+    return atributoCategory;
+
+}
+
+function pegarValorDoAction(elemento) {
+
+    const atributoAction = elemento.getAttribute('data-gtm-action');
+    return atributoAction;
+    
+}
+
+function pegarValorDoLabel(elemento) {
+
+    const atributoLabel = elemento.getAttribute('data-gtm-label');
+    return atributoLabel;
+    
+}
+
+function aceito(elemento) {
+
+    console.log('clicou aceito!');
+    
+    // esconder div de termos
+    document.getElementById(elemento).style.display = 'none';
+
+    // Elemento do botão
+    var idBotao = document.getElementById('aceito-termos');
+
+    const element = pegarValorDoElement(idBotao);
+    const category = pegarValorDoCategory(idBotao);
+    const action = pegarValorDoAction(idBotao);
+    const label = pegarValorDoLabel(idBotao);
 
     window.dataLayer = window.dataLayer || [];
     
     window.dataLayer.push({
-        category: 'home',
-        action: 'clicou',
-        label: 'botao:aceito-termos'
+        event: 'eventGA',
+        element: element,
+        category: category,
+        action: action,
+        label: label
     });
-
-}
-
-var elemento = document.getElementsByClassName('botao-aceito');
-
-function pegarValorDoCategory() {
-    const meuValor = document.getElementById('botao-aceito');
-    console.log(meuValor)
-    //const valorDoAtributo = meuValor.getAttribute('data-gtm-element');
-    //console.log(valorDoAtributo);
-}
-
-function naoaceito() {
     
-    alert('clicou não aceito!');
+}
 
-    //var gtmCategory = document.getElementsByTagName('data-gtm-category');
-    //var gtmActio = document.getElementsByTagName('data-gtm-action');
-    //var gtmLabel = document.getElementsByTagName('data-gtm-label');
+// pegarValorDoCategory('aceito-termos');
+
+function naoaceito(elemento) {
+    
+    console.log('clicou não aceito!');
+
+    // esconder div de termos
+    document.getElementById(elemento).style.display = 'none';
+
+    // Elemento do botão
+    var idBotao = document.getElementById('nao-aceito-termos');
+
+    const element = pegarValorDoElement(idBotao);
+    const category = pegarValorDoCategory(idBotao);
+    const action = pegarValorDoAction(idBotao);
+    const label = pegarValorDoLabel(idBotao);
 
     window.dataLayer = window.dataLayer || [];
     
     window.dataLayer.push({
-        category: 'home',
-        action: 'clicou',
-        label: 'botao:nao-aceito-termos'
+        event: 'eventGA',
+        element: element,
+        category: category,
+        action: action,
+        label: label
     });
-
-    console.log('Eu to funcionando, teu código que não tá! rsrs')
 
 }
