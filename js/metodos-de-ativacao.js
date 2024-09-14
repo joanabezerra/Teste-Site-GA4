@@ -49,7 +49,6 @@ document.addEventListener('click', function(event) {
             'category': valorCategory,
             'action': valorAction,
             'label': valorLabel
-            // 'page_path': "pageview"
         });
 
         // console.log(valorCategory);
