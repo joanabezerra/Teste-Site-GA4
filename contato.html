@@ -37,16 +37,16 @@
     <nav>
         <ul>
             <li>
-                <a href="./index.html">Home</a>
+                <a href="./index.html" data-gtm-category="blog:contato" data-gtm-action="clicou" data-gtm-label="link:home:header">Home</a>
             </li>
             <li>
-                <a href="./posts.html">Posts Antigos</a>
+                <a href="./posts.html" data-gtm-category="blog:contato" data-gtm-action="clicou" data-gtm-label="link:posts:header">Posts Antigos</a>
             </li>
             <li>
-                <a href="./sobre.html">Sobre</a>
+                <a href="./sobre.html" data-gtm-category="blog:contato" data-gtm-action="clicou" data-gtm-label="link:sobre:header">Sobre</a>
             </li>
             <li>
-                <a href="#">Contato</a>
+                <a href="#" data-gtm-category="blog:contato" data-gtm-action="clicou" data-gtm-label="link:contato:header">Contato</a>
             </li>
         </ul>
     </nav>
@@ -56,22 +56,31 @@
     <form action="https://formsubmit.co/ajax/joanafiap@gmail.com" method="post">
         <p>
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" required data-gtm-category="blog:contato" data-gtm-action="preencheu" data-gtm-label="input:nome">
 
         </p>
         <p>
             <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" required data-gtm-category="blog:contato" data-gtm-action="preencheu" data-gtm-label="input:email">
         </p>
         <p>
             <label for="msg">Deixe sua Mensagem</label>
         </p>
         <p>
-            <textarea name="msg" id="msg" cols="30" rows="10" required placeholder="Digite aqui sua dúvida..."></textarea>
+            <textarea name="msg" id="msg" cols="30" rows="10" required placeholder="Digite aqui sua dúvida..." data-gtm-category="blog:contato" data-gtm-action="preencheu" data-gtm-label="input:mensagem"></textarea>
         </p>
 
         <button type="submit">Enviar</button>
     </form>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    
+        window.dataLayer.push({
+            'event': 'Pageview',
+            'page_path': '/blog/contato'
+        });
+    </script>
 
 </body>
 

@@ -1,86 +1,59 @@
-// console.log('Oi');
+// Js Tagueamento
+// Função para pegar o valor do atributo 'data-gtm-category'
+function pegarValorDoCategory(elemento) {
+    if (elemento && elemento.hasAttribute('data-gtm-category')) {
+        const atributoCategory = elemento.getAttribute('data-gtm-category');
+        return atributoCategory;
+    }
+    return null;
+}
 
-// function pegarValorDoElement(elemento) {
+// Função para pegar o valor do atributo 'data-gtm-action'
+function pegarValorDoAction(elemento) {
+    if (elemento && elemento.hasAttribute('data-gtm-action')) {
+        const atributoAction = elemento.getAttribute('data-gtm-action');
+        return atributoAction;
+    }
+    return null;
+}
 
-//     const atributoElement = elemento.getAttribute('data-gtm-element');    
-//     return atributoElement;
+// Função para pegar o valor do atributo 'data-gtm-label'
+function pegarValorDoLabel(elemento) {
+    if (elemento && elemento.hasAttribute('data-gtm-label')) {
+        const atributoLabel = elemento.getAttribute('data-gtm-label');
+        return atributoLabel;
+    }
+    return null;
+}
 
-// }
+// Adiciona o evento de clique ao document inteiro
+document.addEventListener('click', function(event) {
+    const elementoClicado = event.target;
 
-// function pegarValorDoCategory(elemento) {
+    // Verifica se o elemento clicado (ou algum ancestral) tem o atributo 'data-gtm-category'
+    const gtmCategory = elementoClicado.closest('[data-gtm-category]');
+    // Verifica se o elemento clicado (ou algum ancestral) tem o atributo 'data-gtm-action'
+    const gtmAction = elementoClicado.closest('[data-gtm-action]');
+    // Verifica se o elemento clicado (ou algum ancestral) tem o atributo 'data-gtm-label'
+    const gtmLabel = elementoClicado.closest('[data-gtm-label]');
 
-//     const atributoCategory = elemento.getAttribute('data-gtm-category');
-//     return atributoCategory;
+    if (gtmCategory || gtmAction || gtmLabel) {
+        const valorCategory = pegarValorDoCategory(gtmCategory);
+        const valorAction = pegarValorDoAction(gtmAction);
+        const valorLabel = pegarValorDoLabel(gtmLabel);
 
-// }
-
-// function pegarValorDoAction(elemento) {
-
-//     const atributoAction = elemento.getAttribute('data-gtm-action');
-//     return atributoAction;
+        window.dataLayer = window.dataLayer || [];
     
-// }
+        window.dataLayer.push({
+            'event': 'Interaction',
+            'category': valorCategory,
+            'action': valorAction,
+            'label': valorLabel
+            // 'page_path': "pageview"
+        });
 
-// function pegarValorDoLabel() {
-
-//     var div1 = document.getElementById("aceite-dados");
-//     const atributoLabel = div1.getAttribute('data-gtm-label');
-//     alert(atributoLabel);
-    
-// }
-
-// function aceito(elemento) {
-
-//     console.log('clicou aceito!');
-    
-//     // esconder div de termos
-//     document.getElementById(elemento).style.display = 'none';
-
-//     // Elemento do botão
-//     var idBotao = document.getElementById('aceito-termos');
-
-//     const element = pegarValorDoElement(idBotao);
-//     const category = pegarValorDoCategory(idBotao);
-//     const action = pegarValorDoAction(idBotao);
-//     const label = pegarValorDoLabel(idBotao);
-
-//     window.dataLayer = window.dataLayer || [];
-    
-//     window.dataLayer.push({
-//         event: 'eventGA',
-//         element: element,
-//         category: category,
-//         action: action,
-//         label: label
-//     });
-    
-// }
-
-// // pegarValorDoCategory('aceito-termos');
-
-// function naoaceito(elemento) {
-    
-//     console.log('clicou não aceito!');
-
-//     // esconder div de termos
-//     document.getElementById(elemento).style.display = 'none';
-
-//     // Elemento do botão
-//     var idBotao = document.getElementById('nao-aceito-termos');
-
-//     const element = pegarValorDoElement(idBotao);
-//     const category = pegarValorDoCategory(idBotao);
-//     const action = pegarValorDoAction(idBotao);
-//     const label = pegarValorDoLabel(idBotao);
-
-//     window.dataLayer = window.dataLayer || [];
-    
-//     window.dataLayer.push({
-//         event: 'eventGA',
-//         element: element,
-//         category: category,
-//         action: action,
-//         label: label
-//     });
-
-// }
+        // console.log(valorCategory);
+        // console.log(valorAction);
+        // console.log(valorLabel);
+    }
+});

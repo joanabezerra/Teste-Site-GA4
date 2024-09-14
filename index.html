@@ -2,16 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Javascript -->
-    <script src="./js/metodos-de-ativacao.js"></script>
-    <script>
-        window.dataLayer = window.dataLaye || [];
-        dataLayer.push({
-            'event': 'Interaction',
-            'category': 'blog:home',
-            'label': 'botao:home'
-        })
-    </script>
     
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,16 +34,16 @@
     <nav>
         <ul>
             <li>
-                <a href="#" id="home" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:home:header">Home</a>
+                <a href="#" id="home" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="link:home:header">Home</a>
             </li>
             <li>
-                <a href="./posts.html" id="posts" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:post:header">Posts Antigos</a>
+                <a href="./posts.html" id="posts" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="link:post:header">Posts Antigos</a>
             </li>
             <li>
-                <a href="./sobre.html" id="sobre" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:sobre:header">Sobre</a>
+                <a href="./sobre.html" id="sobre" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="link:sobre:header">Sobre</a>
             </li>
             <li>
-                <a href="./contato.html" id="contato" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:contato:header">Contato</a>
+                <a href="./contato.html" id="contato" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="link:contato:header">Contato</a>
             </li>
         </ul>
     </nav>
@@ -101,9 +91,20 @@
     
     <div id="aceite-dados">
         <h3>Aceito compartilhar os dados com esse site.</h3>
-        <button onclick="pegarValorDoLabel()" id='aceito-termos' class="botao-aceito" onclick="aceito('aceite-dados')" data-gtm-element="botao" data-gtm-category="home" data-gtm-action="clicou" data-gtm-label="botao:aceito">Aceito</button>
-        <button id='nao-aceito-termos' class="botao-nao-aceito" onclick="naoaceito('aceite-dados')" data-gtm-element="botao" data-gtm-category="home" data-gtm-action="clicou" data-gtm-label="botao:nao-obrigado">Não obrigado</button>
+        <button id='aceito-termos' class="botao-aceito" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="botao:aceito">Aceito</button>
+        <button id='nao-aceito-termos' class="botao-nao-aceito" data-gtm-category="blog:home" data-gtm-action="clicou" data-gtm-label="botao:nao-obrigado">Não obrigado</button>
     </div>
+
+    <!-- Javascript -->
+    <script src="./js/metodos-de-ativacao.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    
+        window.dataLayer.push({
+            'event': 'Pageview',
+            'page_path': '/blog/home'
+        });
+    </script>
 
 </body>
 

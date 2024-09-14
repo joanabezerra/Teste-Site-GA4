@@ -35,16 +35,16 @@
     <nav>
         <ul>
             <li>
-                <a href="./index.html">Home</a>
+                <a href="./index.html" data-gtm-category="blog:sobre" data-gtm-action="clicou" data-gtm-label="link:home:header">Home</a>
             </li>
             <li>
-                <a href="./posts.html">Posts Antigos</a>
+                <a href="./posts.html" data-gtm-category="blog:sobre" data-gtm-action="clicou" data-gtm-label="link:post:header">Posts Antigos</a>
             </li>
             <li>
-                <a href="#">Sobre</a>
+                <a href="#" data-gtm-category="blog:sobre" data-gtm-action="clicou" data-gtm-label="link:sobre:header">Sobre</a>
             </li>
             <li>
-                <a href="./contato.html">Contato</a>
+                <a href="./contato.html" data-gtm-category="blog:sobre" data-gtm-action="clicou" data-gtm-label="link:contato:header">Contato</a>
             </li>
         </ul>
     </nav>
@@ -89,6 +89,15 @@
     </p>
 
     <img src="./imgs/Google-Analytics-4.png" alt="imagem google analytics 4" width="100%">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    
+        window.dataLayer.push({
+            'event': 'Pageview',
+            'page_path': '/blog/sobre'
+        });
+    </script>
     
 </body>
 </html>
