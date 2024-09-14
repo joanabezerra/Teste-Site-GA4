@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+    <!-- Javascript -->
+    <script src="./js/metodos-de-ativacao.js"></script>
+    <script>
+        window.dataLayer = window.dataLaye || [];
+        dataLayer.push({
+            'event': 'Interaction',
+            'category': 'blog:home',
+            'label': 'botao:home'
+        })
+    </script>
+    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -12,16 +23,6 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LVDEH6HKX"></script>
-    <script type="text/javascript">
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: '{{ strtolower($event) }}',
-            transactionId: '{{ $transaction->codigo }}',
-            transactionTotal: '{{ $transaction->conversion_valeu }}',
-            transactionCurrency: '{{ $transaction->beneficiary_currency }}',
-            transactionMethod: '{{ $transaction->payment_method }}'
-        });
-    </script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,16 +44,16 @@
     <nav>
         <ul>
             <li>
-                <a href="#" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:home:header">Home</a>
+                <a href="#" id="home" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:home:header">Home</a>
             </li>
             <li>
-                <a href="./posts.html" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:post:header">Posts Antigos</a>
+                <a href="./posts.html" id="posts" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:post:header">Posts Antigos</a>
             </li>
             <li>
-                <a href="./sobre.html" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:sobre:header">Sobre</a>
+                <a href="./sobre.html" id="sobre" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:sobre:header">Sobre</a>
             </li>
             <li>
-                <a href="./contato.html" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:contato:header">Contato</a>
+                <a href="./contato.html" id="contato" data-gtm-element="link" data-gtm-category="index" data-gtm-action="click" data-gtm-label="link:contato:header">Contato</a>
             </li>
         </ul>
     </nav>
@@ -100,12 +101,9 @@
     
     <div id="aceite-dados">
         <h3>Aceito compartilhar os dados com esse site.</h3>
-        <button id='aceito-termos' class="botao-aceito" onclick="aceito('aceite-dados')" data-gtm-element="botao" data-gtm-category="home" data-gtm-action="clicou" data-gtm-label="botao:aceito">Aceito</button>
+        <button onclick="pegarValorDoLabel()" id='aceito-termos' class="botao-aceito" onclick="aceito('aceite-dados')" data-gtm-element="botao" data-gtm-category="home" data-gtm-action="clicou" data-gtm-label="botao:aceito">Aceito</button>
         <button id='nao-aceito-termos' class="botao-nao-aceito" onclick="naoaceito('aceite-dados')" data-gtm-element="botao" data-gtm-category="home" data-gtm-action="clicou" data-gtm-label="botao:nao-obrigado">Não obrigado</button>
     </div>
-
-    <!-- Javascript -->
-    <script src="./js/metodos-de-ativacao.js"></script>
 
 </body>
 
